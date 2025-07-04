@@ -142,13 +142,10 @@ const Login = () => {
       <div className="w-full max-w-md">
         {/* Logo and Branding */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 13L12 4L21 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M9 21V13H15V21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <div className="w-60 flex items-center justify-center mx-auto mb-4">
+            <img className src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png" alt="SalesFlow Pro Logo" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-text-primary font-heading mb-2">SalesFlow Pro</h1>
+          <h1 className="text-3xl font-bold text-text-primary font-heading mb-2">CRM Management Tool</h1>
           <p className="text-text-secondary">Sign in to your account</p>
         </div>
 
@@ -279,31 +276,13 @@ const Login = () => {
           </form>
 
           {/* Demo Credentials Info */}
-          <div className="mt-6 p-4 bg-primary-50 rounded-lg border border-primary-100">
-            <h3 className="text-sm font-medium text-primary mb-3 flex items-center space-x-2">
-              <Icon name="Info" size={16} />
-              <span>Demo Credentials - Click to Login</span>
-            </h3>
-            <div className="space-y-2">
-              {demoCredentials.map((cred, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleDemoLogin(cred)}
-                  disabled={isLoading}
-                  className="w-full text-left text-xs bg-white border border-primary-200 rounded p-2 hover:bg-primary-25 transition-colors disabled:opacity-50"
-                >
-                  <div className="font-medium text-primary">{cred.role}</div>
-                  <div className="text-primary-600">{cred.email}</div>
-                </button>
-              ))}
-            </div>
-          </div>
+         
         </div>
 
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-sm text-text-tertiary">
-            © {new Date().getFullYear()} SalesFlow Pro. All rights reserved.
+            © {new Date().getFullYear()} Delta Xero Creations. All rights reserved.
           </p>
         </div>
       </div>

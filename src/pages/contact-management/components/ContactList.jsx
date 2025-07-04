@@ -57,8 +57,8 @@ const ContactList = ({
             <div className="flex-shrink-0 mr-3">
               <div className="relative">
                 <Image
-                  src={contact.avatar || 'https://via.placeholder.com/150'}
-                  alt={`${contact.firstName} ${contact.lastName}`}
+                  src={contact.avatar_url || 'https://via.placeholder.com/150'}
+                  alt={`${contact.first_name} ${contact.last_name}`}
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <span className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-surface ${
@@ -70,10 +70,10 @@ const ContactList = ({
             <div className="flex-1 min-w-0">
               <div className="flex justify-between items-start">
                 <h3 className="text-sm font-medium text-text-primary truncate">
-                  {contact.firstName} {contact.lastName}
+                  {contact.first_name} {contact.last_name}
                 </h3>
                 <div className="flex items-center ml-2">
-                  {contact.deals.some(deal => deal.stage === 'negotiation' || deal.stage === 'proposal') && (
+                  {contact.deals && Array.isArray(contact.deals) && contact.deals.some(deal => deal.stage === 'negotiation' || deal.stage === 'proposal') && (
                     <span className="w-2 h-2 bg-warning rounded-full mr-1" title="Has active deals"></span>
                   )}
                   <button

@@ -32,9 +32,7 @@ const RecentActivity = () => {
     <div className="card p-6">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold text-text-primary">Recent Activity</h3>
-        <button className="text-sm text-primary hover:text-primary-700 transition-colors duration-150">
-          View All
-        </button>
+       
       </div>
 
       <div className="space-y-4">
@@ -76,10 +74,7 @@ const RecentActivity = () => {
 
       {/* View More Button */}
       <div className="mt-6 pt-4 border-t border-border">
-        <button className="w-full text-sm text-text-secondary hover:text-primary transition-colors duration-150 flex items-center justify-center space-x-2">
-          <Icon name="ChevronDown" size={16} />
-          <span>Load More Activities</span>
-        </button>
+       
       </div>
     </div>
   );

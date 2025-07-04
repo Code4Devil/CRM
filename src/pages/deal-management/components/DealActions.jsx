@@ -35,23 +35,11 @@ const DealActions = ({ onSave, onDelete, onClone, onCreateTask, isSaving }) => {
 
       {/* Secondary Actions */}
       <div className="flex space-x-2">
-        <button
-          onClick={onClone}
-          className="flex items-center space-x-2 px-4 py-2 border border-border rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-hover transition-all duration-150"
-          title="Clone Deal"
-        >
-          <Icon name="Copy" size={16} />
-          <span className="hidden sm:inline">Clone</span>
-        </button>
+       
+         
 
-        <button
-          onClick={onDelete}
-          className="flex items-center space-x-2 px-4 py-2 border border-error text-error rounded-lg hover:bg-error-50 transition-all duration-150"
-          title="Delete Deal"
-        >
-          <Icon name="Trash2" size={16} />
-          <span className="hidden sm:inline">Delete</span>
-        </button>
+     
+       
       </div>
     </div>
   );

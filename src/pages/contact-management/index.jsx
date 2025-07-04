@@ -55,7 +55,7 @@ const ContactManagement = () => {
 
   // Filter contacts based on search query and filters
   const filteredContacts = contacts.filter(contact => {
-    const fullName = `${contact.firstName} ${contact.lastName}`.toLowerCase();
+    const fullName = `${contact.first_name} ${contact.last_name}`.toLowerCase();
     const email = contact.email.toLowerCase();
     const company = contact.company.toLowerCase();
     const searchLower = searchQuery.toLowerCase();
@@ -120,8 +120,9 @@ const ContactManagement = () => {
   const handleSaveContact = async (contactData) => {
     if (isAddingContact) {
       // Add new contact
+      const { avatar_url, ...restOfContactData } = contactData;
       const { data, error } = await contactService.createContact({
-        ...contactData,
+        ...restOfContactData,
         last_contact_date: new Date().toISOString(),
         status: 'active',
       });

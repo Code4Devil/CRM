@@ -3,17 +3,17 @@ import Icon from 'components/AppIcon';
 
 const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
   const [formData, setFormData] = useState({
-    firstName: contact?.firstName || '',
-    lastName: contact?.lastName || '',
+    first_name: contact?.first_name || '',
+    last_name: contact?.last_name || '',
     email: contact?.email || '',
     phone: contact?.phone || '',
     company: contact?.company || '',
     position: contact?.position || '',
-    avatar: contact?.avatar || 'https://randomuser.me/api/portraits/lego/1.jpg',
+    avatar_url: contact?.avatar_url || 'https://randomuser.me/api/portraits/lego/1.jpg',
     tags: contact?.tags || [],
     notes: contact?.notes || '',
-    socialProfiles: contact?.socialProfiles || { linkedin: '', twitter: '' },
-    customFields: contact?.customFields || {
+    social_profiles: contact?.social_profiles || { linkedin: '', twitter: '' },
+    custom_fields: contact?.custom_fields || {
       preferredContactMethod: '',
       decisionTimeframe: '',
       budgetRange: ''
@@ -64,8 +64,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+    if (!formData.first_name.trim()) newErrors.first_name = 'First name is required';
+    if (!formData.last_name.trim()) newErrors.last_name = 'Last name is required';
     
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -159,13 +159,13 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                 <input
                   type="text"
                   id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
+                  name="first_name"
+                  value={formData.first_name}
                   onChange={handleChange}
-                  className={`input-field ${errors.firstName ? 'border-error focus:border-error focus:ring-error' : ''}`}
+                  className={`input-field ${errors.first_name ? 'border-error focus:border-error focus:ring-error' : ''}`}
                 />
-                {errors.firstName && (
-                  <p className="mt-1 text-sm text-error">{errors.firstName}</p>
+                {errors.first_name && (
+                  <p className="mt-1 text-sm text-error">{errors.first_name}</p>
                 )}
               </div>
               
@@ -176,13 +176,13 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                 <input
                   type="text"
                   id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
+                  name="last_name"
+                  value={formData.last_name}
                   onChange={handleChange}
-                  className={`input-field ${errors.lastName ? 'border-error focus:border-error focus:ring-error' : ''}`}
+                  className={`input-field ${errors.last_name ? 'border-error focus:border-error focus:ring-error' : ''}`}
                 />
-                {errors.lastName && (
-                  <p className="mt-1 text-sm text-error">{errors.lastName}</p>
+                {errors.last_name && (
+                  <p className="mt-1 text-sm text-error">{errors.last_name}</p>
                 )}
               </div>
               
@@ -317,8 +317,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                   <input
                     type="text"
                     id="linkedin"
-                    name="socialProfiles.linkedin"
-                    value={formData.socialProfiles.linkedin}
+                    name="social_profiles.linkedin"
+                    value={formData.social_profiles.linkedin}
                     onChange={handleChange}
                     placeholder="linkedin.com/in/username"
                     className="input-field pl-10"
@@ -337,8 +337,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                   <input
                     type="text"
                     id="twitter"
-                    name="socialProfiles.twitter"
-                    value={formData.socialProfiles.twitter}
+                    name="social_profiles.twitter"
+                    value={formData.social_profiles.twitter}
                     onChange={handleChange}
                     placeholder="twitter.com/username"
                     className="input-field pl-10"
@@ -357,8 +357,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                   <input
                     type="text"
                     id="facebook"
-                    name="socialProfiles.facebook"
-                    value={formData.socialProfiles.facebook || ''}
+                    name="social_profiles.facebook"
+                    value={formData.social_profiles.facebook || ''}
                     onChange={handleChange}
                     placeholder="facebook.com/username"
                     className="input-field pl-10"
@@ -377,8 +377,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                 </label>
                 <select
                   id="preferredContactMethod"
-                  name="customFields.preferredContactMethod"
-                  value={formData.customFields.preferredContactMethod}
+                  name="custom_fields.preferredContactMethod"
+                  value={formData.custom_fields.preferredContactMethod}
                   onChange={handleChange}
                   className="input-field"
                 >
@@ -396,8 +396,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                 </label>
                 <select
                   id="decisionTimeframe"
-                  name="customFields.decisionTimeframe"
-                  value={formData.customFields.decisionTimeframe}
+                  name="custom_fields.decisionTimeframe"
+                  value={formData.custom_fields.decisionTimeframe}
                   onChange={handleChange}
                   className="input-field"
                 >
@@ -418,8 +418,8 @@ const ContactForm = ({ contact, onSave, onCancel, isEditing }) => {
                 </label>
                 <select
                   id="budgetRange"
-                  name="customFields.budgetRange"
-                  value={formData.customFields.budgetRange}
+                  name="custom_fields.budgetRange"
+                  value={formData.custom_fields.budgetRange}
                   onChange={handleChange}
                   className="input-field"
                 >

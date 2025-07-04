@@ -54,8 +54,8 @@ const Header = () => {
         <div className="px-6 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center  md:pl-10">
-              <Link to="/sales-dashboard" className="flex items-center space-x-3 overflow-hidden h-10" onClick={handleNavigation}>
+            <div className="flex items-center h-10  md:pl-10 overflow-hidden">
+              <Link to="/sales-dashboard" className="flex items-center space-x-3" onClick={handleNavigation}>
                 <img src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png"  className="h-28 w-auto -ml-8 " />
               </Link>
             </div>
@@ -84,52 +84,17 @@ const Header = () => {
               {/* Notifications */}
             
 
-              {/* User Menu */}
-              <div className="relative">
-                <button
-                  onClick={handleUserMenuToggle}
-                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-surface-hover transition-colors duration-150 ease-smooth"
-                >
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <Icon name="User" size={16} className="text-primary" />
-                  </div>
-                  <div className="hidden md:block text-left">
-                    <div className="text-sm font-medium text-text-primary">Sample user</div>
-                    <div className="text-xs text-text-secondary">Sales Manager</div>
-                  </div>
-                  <Icon name="ChevronDown" size={16} className="text-text-secondary" />
-                </button>
+              {/* Logout Button for Desktop */}
+              <button
+                onClick={handleLogout}
+                className="hidden lg:flex items-center space-x-3 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ease-smooth text-text-secondary hover:text-text-primary hover:bg-surface-hover"
+                title="Logout"
+              >
+                <Icon name="LogOut" size={16} />
+                <span>Logout</span>
+              </button>
 
-                {/* User Dropdown */}
-                {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-border z-1100">
-                    <div className="py-2">
-                      {userMenuItems.map((item) => (
-                        item.path ? (
-                          <Link
-                            key={item.path}
-                            to={item.path}
-                            onClick={handleNavigation}
-                            className="flex items-center space-x-3 px-4 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-surface-hover transition-colors duration-150 ease-smooth"
-                          >
-                            <Icon name={item.icon} size={16} />
-                            <span>{item.label}</span>
-                          </Link>
-                        ) : (
-                          <button
-                            key={item.label}
-                            onClick={item.action}
-                            className="flex items-center space-x-3 px-4 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-surface-hover transition-colors duration-150 ease-smooth w-full text-left"
-                          >
-                            <Icon name={item.icon} size={16} />
-                            <span>{item.label}</span>
-                          </button>
-                        )
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+         
 
               {/* Mobile Menu Button */}
               <button
@@ -151,8 +116,7 @@ const Header = () => {
             <div className="p-6">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center space-x-3">
-                  <img src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png" alt="SalesForce Pro Logo" className="h-8 w-auto" />
-                  <span className="text-xl font-semibold text-text-primary font-heading">SalesForce Pro</span>
+                  <img src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png" alt="SalesForce Pro Logo" className="h-20 w-auto" />
                 </div>
                 <button
                   onClick={handleMobileMenuToggle}

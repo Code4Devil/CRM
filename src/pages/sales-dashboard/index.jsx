@@ -281,38 +281,10 @@ const SalesDashboard = () => {
             
             {/* Filter Controls */}
             <div className="flex flex-col sm:flex-row gap-4 mt-4 lg:mt-0">
-              <select
-                value={selectedDateRange}
-                onChange={(e) => setSelectedDateRange(e.target.value)}
-                className="input-field text-sm"
-              >
-                <option value="thisWeek">This Week</option>
-                <option value="thisMonth">This Month</option>
-                <option value="thisQuarter">This Quarter</option>
-                <option value="thisYear">This Year</option>
-              </select>
               
-              <select
-                value={selectedProbability}
-                onChange={(e) => setSelectedProbability(e.target.value)}
-                className="input-field text-sm"
-              >
-                <option value="all">All Probabilities</option>
-                <option value="high">High (&gt;70%)</option>
-                <option value="medium">Medium (30-70%)</option>
-                <option value="low">Low (&lt;30%)</option>
-              </select>
               
-              <select
-                value={selectedTerritory}
-                onChange={(e) => setSelectedTerritory(e.target.value)}
-                className="input-field text-sm"
-              >
-                <option value="all">All Territories</option>
-                <option value="north">North America</option>
-                <option value="europe">Europe</option>
-                <option value="asia">Asia Pacific</option>
-              </select>
+            
+           
             </div>
           </div>
 

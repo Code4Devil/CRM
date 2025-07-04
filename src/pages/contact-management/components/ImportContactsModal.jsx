@@ -5,8 +5,8 @@ const ImportContactsModal = ({ onImport, onClose }) => {
   const [step, setStep] = useState(1);
   const [file, setFile] = useState(null);
   const [mappings, setMappings] = useState({
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     company: '',
@@ -25,24 +25,24 @@ const ImportContactsModal = ({ onImport, onClose }) => {
         // This would normally parse the CSV file
         const mockPreview = [
           {
-            firstName: 'John',
-            lastName: 'Doe',
+            first_name: 'John',
+            last_name: 'Doe',
             email: 'john.doe@example.com',
             phone: '+1 (555) 123-4567',
             company: 'Example Corp',
             position: 'Sales Manager'
           },
           {
-            firstName: 'Jane',
-            lastName: 'Smith',
+            first_name: 'Jane',
+            last_name: 'Smith',
             email: 'jane.smith@example.com',
             phone: '+1 (555) 987-6543',
             company: 'Sample Inc',
             position: 'Marketing Director'
           },
           {
-            firstName: 'Robert',
-            lastName: 'Johnson',
+            first_name: 'Robert',
+            last_name: 'Johnson',
             email: 'robert.johnson@example.com',
             phone: '+1 (555) 456-7890',
             company: 'Test LLC',
@@ -54,8 +54,8 @@ const ImportContactsModal = ({ onImport, onClose }) => {
         
         // Auto-map columns based on headers
         setMappings({
-          firstName: 'firstName',
-          lastName: 'lastName',
+          first_name: 'first_name',
+          last_name: 'last_name',
           email: 'email',
           phone: 'phone',
           company: 'company',
@@ -82,21 +82,21 @@ const ImportContactsModal = ({ onImport, onClose }) => {
       // In a real app, this would process the file with the mappings
       const importedContacts = preview.map((item, index) => ({
         id: Date.now() + index,
-        firstName: item[mappings.firstName] || '',
-        lastName: item[mappings.lastName] || '',
+        first_name: item[mappings.first_name] || '',
+        last_name: item[mappings.last_name] || '',
         email: item[mappings.email] || '',
         phone: item[mappings.phone] || '',
         company: item[mappings.company] || '',
         position: item[mappings.position] || '',
-        avatar: `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'men' : 'women'}/${Math.floor(Math.random() * 100)}.jpg`,
+        avatar_url: `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'men' : 'women'}/${Math.floor(Math.random() * 100)}.jpg`,
         lastContactDate: new Date().toISOString(),
         status: 'active',
         tags: [],
         deals: [],
         notes: '',
-        socialProfiles: {},
+        social_profiles: {},
         activities: [],
-        customFields: {
+        custom_fields: {
           preferredContactMethod: '',
           decisionTimeframe: '',
           budgetRange: ''
@@ -195,14 +195,14 @@ const ImportContactsModal = ({ onImport, onClose }) => {
                         First Name*
                       </label>
                       <select
-                        value={mappings.firstName}
-                        onChange={(e) => handleMappingChange('firstName', e.target.value)}
+                        value={mappings.first_name}
+                        onChange={(e) => handleMappingChange('first_name', e.target.value)}
                         className="input-field"
                       >
                         <option value="">Select column</option>
-                        <option value="firstName">firstName</option>
                         <option value="first_name">first_name</option>
-                        <option value="FirstName">FirstName</option>
+                        <option value="first_name">first_name</option>
+                        <option value="first_name">first_name</option>
                       </select>
                     </div>
                     
@@ -211,14 +211,14 @@ const ImportContactsModal = ({ onImport, onClose }) => {
                         Last Name*
                       </label>
                       <select
-                        value={mappings.lastName}
-                        onChange={(e) => handleMappingChange('lastName', e.target.value)}
+                        value={mappings.last_name}
+                        onChange={(e) => handleMappingChange('last_name', e.target.value)}
                         className="input-field"
                       >
                         <option value="">Select column</option>
-                        <option value="lastName">lastName</option>
                         <option value="last_name">last_name</option>
-                        <option value="LastName">LastName</option>
+                        <option value="last_name">last_name</option>
+                        <option value="last_name">last_name</option>
                       </select>
                     </div>
                     
@@ -315,10 +315,10 @@ const ImportContactsModal = ({ onImport, onClose }) => {
                         {preview.slice(0, 3).map((item, index) => (
                           <tr key={index}>
                             <td className="px-4 py-3 whitespace-nowrap text-sm text-text-primary">
-                              {item[mappings.firstName] || '-'}
+                              {item[mappings.first_name] || '-'}
                             </td>
                             <td className="px-4 py-3 whitespace-nowrap text-sm text-text-primary">
-                              {item[mappings.lastName] || '-'}
+                              {item[mappings.last_name] || '-'}
                             </td>
                             <td className="px-4 py-3 whitespace-nowrap text-sm text-text-primary">
                               {item[mappings.email] || '-'}
@@ -364,9 +364,9 @@ const ImportContactsModal = ({ onImport, onClose }) => {
             ) : (
               <button
                 onClick={handleImport}
-                disabled={isLoading || !mappings.firstName || !mappings.lastName || !mappings.email || !mappings.company}
+                disabled={isLoading || !mappings.first_name || !mappings.last_name || !mappings.email || !mappings.company}
                 className={`btn-primary inline-flex items-center ${
-                  isLoading || !mappings.firstName || !mappings.lastName || !mappings.email || !mappings.company
+                  isLoading || !mappings.first_name || !mappings.last_name || !mappings.email || !mappings.company
                     ? 'opacity-50 cursor-not-allowed' :''
                 }`}
               >

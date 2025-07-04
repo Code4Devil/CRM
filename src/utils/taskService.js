@@ -57,7 +57,6 @@ class TaskService {
   // Get upcoming tasks for dashboard
   async getUpcomingTasks(userId, limit = 5) {
     try {
-      console.log('TaskService: Fetching upcoming tasks for userId:', userId);
       const { data, error } = await supabase
         .from('tasks')
         .select(`
@@ -73,7 +72,6 @@ class TaskService {
       if (error) {
         return { success: false, error: error.message };
       }
-      console.log('TaskService: Raw Supabase data for upcoming tasks:', data);
 
       // Transform data for dashboard display
       const transformedTasks = (data || []).map(task => ({

@@ -121,9 +121,7 @@ const UpcomingTasks = ({ tasks: propTasks }) => {
     <div className="card p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-medium text-text-primary">Upcoming Tasks</h3>
-        <Link to="/tasks" className="text-primary hover:text-primary-dark text-sm">
-          View all
-        </Link>
+      
       </div>
       
       {tasks?.length === 0 ? (

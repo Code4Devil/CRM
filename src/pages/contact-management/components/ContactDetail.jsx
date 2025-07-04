@@ -46,8 +46,8 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
           <div className="flex items-center">
             <div className="relative mr-4">
               <Image
-                src={contact.avatar || 'https://via.placeholder.com/150'}
-                alt={`${contact.firstName} ${contact.lastName}`}
+                src={contact.avatar_url || 'https://via.placeholder.com/150'}
+                alt={`${contact.first_name} ${contact.last_name}`}
                 className="w-16 h-16 rounded-full object-cover"
               />
               <span className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-surface ${
@@ -57,7 +57,7 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
             
             <div>
               <h2 className="text-xl font-bold text-text-primary">
-                {contact.firstName} {contact.lastName}
+                {contact.first_name} {contact.last_name}
               </h2>
               <div className="flex items-center text-text-secondary">
                 <span>{contact.position}</span>
@@ -86,13 +86,7 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
               <span>Email</span>
             </button>
             
-            <button
-              onClick={() => setIsCallModalOpen(true)}
-              className="inline-flex items-center space-x-2 px-3 py-2 border border-border rounded-lg text-text-secondary hover:text-primary hover:border-primary transition-all duration-150 ease-out"
-            >
-              <Icon name="Phone" size={16} />
-              <span>Call</span>
-            </button>
+            
             
             <button
               onClick={onEdit}
@@ -142,30 +136,10 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
           >
             Overview
           </button>
-          <button
-            onClick={() => setActiveTab('activity')}
-            className={`px-4 py-3 text-sm font-medium whitespace-nowrap ${
-              activeTab === 'activity' ?'text-primary border-b-2 border-primary' :'text-text-secondary hover:text-text-primary'
-            }`}
-          >
-            Activity
-          </button>
-          <button
-            onClick={() => setActiveTab('deals')}
-            className={`px-4 py-3 text-sm font-medium whitespace-nowrap ${
-              activeTab === 'deals' ?'text-primary border-b-2 border-primary' :'text-text-secondary hover:text-text-primary'
-            }`}
-          >
-            Deals ({contact.deals.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('notes')}
-            className={`px-4 py-3 text-sm font-medium whitespace-nowrap ${
-              activeTab === 'notes' ?'text-primary border-b-2 border-primary' :'text-text-secondary hover:text-text-primary'
-            }`}
-          >
-            Notes
-          </button>
+         
+          
+        
+        
         </nav>
       </div>
       
@@ -230,9 +204,9 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
               <div className="card p-5">
                 <h3 className="text-lg font-semibold text-text-primary mb-4">Social Profiles</h3>
                 
-                {contact.socialProfiles && Object.entries(contact.socialProfiles).length > 0 ? (
-                  <div className="space-y-3">
-                    {Object.entries(contact.socialProfiles).map(([platform, url]) => (
+                {contact.social_profiles && Object.entries(contact.social_profiles).length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {Object.entries(contact.social_profiles).map(([platform, url]) => (
                       <a 
                         key={platform}
                         href={url.startsWith('http') ? url : `https://${url}`}
@@ -255,9 +229,9 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
               <div className="card p-5">
                 <h3 className="text-lg font-semibold text-text-primary mb-4">Additional Information</h3>
                 
-                {contact.customFields && Object.entries(contact.customFields).length > 0 ? (
+                {contact.custom_fields && Object.entries(contact.custom_fields).length > 0 ? (
                   <div className="space-y-3">
-                    {Object.entries(contact.customFields).map(([key, value]) => (
+                    {Object.entries(contact.custom_fields).map(([key, value]) => (
                       <div key={key}>
                         <div className="text-sm text-text-secondary mb-1">
                           {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
@@ -279,7 +253,7 @@ const ContactDetail = ({ contact, onEdit, onDelete }) => {
         )}
         
         {activeTab === 'deals' && (
-          <DealsList deals={contact.deals} contactName={`${contact.firstName} ${contact.lastName}`} />
+          <DealsList deals={contact.deals} contactName={`${contact.first_name} ${contact.last_name}`} />
         )}
         
         {activeTab === 'notes' && (
