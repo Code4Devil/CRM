@@ -1,9 +1,9 @@
 {
-  "routes": [
+  "outputDirectory": "build",
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
