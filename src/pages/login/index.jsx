@@ -143,7 +143,7 @@ const Login = () => {
         {/* Logo and Branding */}
         <div className="text-center mb-8">
           <div className="w-60 flex items-center justify-center mx-auto mb-4">
-            <img className src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png" alt="SalesFlow Pro Logo" className="w-full h-full object-contain" />
+            <img src="https://sdwgyjjcxdhdlcuvjadq.supabase.co/storage/v1/object/public/invoices//delta_zero_vertical_logo-removebg-preview.png" alt="SalesFlow Pro Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-text-primary font-heading mb-2">CRM Management Tool</h1>
           <p className="text-text-secondary">Sign in to your account</p>
