@@ -13,6 +13,7 @@ import DocumentsSection from './components/DocumentsSection';
 import DealActions from './components/DealActions';
 import taskService from '../../utils/taskService';
 import TaskFormModal from '../../components/TaskFormModal';
+import toast, { Toaster } from 'react-hot-toast';
 
 const DealManagement = () => {
   const { user } = useAuth();
@@ -261,16 +262,19 @@ industry: '',
       if (result.success) {
         setSelectedDeal(result.data);
         console.log('Deal saved:', result.data);
-        // Optionally navigate to the new deal's page if it's a new deal
+        toast.success('Deal saved successfully!');
         if (!selectedDeal?.id) {
-          navigate(`/deals/${result.data.id}`);
+          setSelectedDeal(null); // Clear form for new deal creation
         }
+        // Removed redirection to the new deal's page after creation.
       } else {
         console.error('Failed to save deal:', result.error);
+      toast.error(`Failed to save deal: ${result.error}`);
         // Handle error, e.g., show a toast notification
       }
     } catch (error) {
       console.error('Error saving deal:', error);
+      toast.error('Error saving deal.');
     } finally {
       setIsSaving(false);
     }
@@ -384,6 +388,7 @@ industry: '',
 
   return (
     <div className="min-h-screen bg-background">
+      <Toaster position="top-right" reverseOrder={false} />
       <Header />
       
       <main className="pt-16">
